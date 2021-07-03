@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>勉強時間測定ツール | wan-wan</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="pochi1111が作成したツールです。ログインや会員登録しなくても
+        保存でき、使用することができます。">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="tool.css">
+    </head>
+    <body>
+        <div id="progress-time">
+            <h1><span id="hour">0</span>時間<span id="minute">0</span>分<span id="second">0</span>秒</h1>
+        </div>
+        <h2 class="big"><span id="subject">教科</span>を勉強しました。</h2>
+        <div id="setting">
+                <select id="pull-down-menu">
+                    <option value="1">国語</option>
+                    <option value="2">算数</option>
+                    <option value="3">理科</option>
+                    <option value="4">社会</option>
+                </select>
+                <button id="start" onclick="start_click();">スタート</button>
+                <button id="stop" onclick="stop_click();">ストップ</button>
+                <button id="touroku" onclick="touroku_click();">登録</button>
+                <button id="torikesi" onclick="torikesi_click();">取り消し</button>
+                <button onclick="sousasetumei();">操作説明</button>
+        </div>
+        <div id="history">
+            <details>
+                <summary><h2>今日勉強した時間</h2></summary>
+                <h3>国語:<span id="day-japanese"></span><br /></h3>
+                <h3>算数:<span id="day-math"></span><br />
+                <h3>理科:<span id="day-science"></span><br /></h3>
+                <h3>社会:<span id="day-social-studies"></span><br /></h3>
+            </details>
+        </div>
+        <div id="week">
+            <details>
+                <summary><h2>いままで勉強した時間</h2></summary>
+                <h3>国語:<span id="week-japanese"></span><br /></h3>
+                <h3>算数:<span id="week-math"></span><br />
+                <h3>理科:<span id="week-science"></span><br /></h3>
+                <h3>社会:<span id="week-social-studies"></span><br /></h3>
+            </details>
+        </div>
+
+    </body>
+    <script src="tool.js"></script>
+
+    <!--
+        --memo--
+        hisとweekは変数、historyとhullはストレージ
+        *追加機能*
+        パソコンいじり禁止機能
+        始めてだったら操作方法説明機能
+        今の時間を表示する機能
+    -->
+</html>
