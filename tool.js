@@ -9,10 +9,12 @@ let his_math = document.getElementById('day-math');
 let his_japanese = document.getElementById('day-japanese');
 let his_rika = document.getElementById('day-science');
 let his_shakai = document.getElementById('day-social-studies');
+let his_sonohoka = document.getElementById('day-sonohoka');
 let week_math = document.getElementById('week-math');
 let week_japanese = document.getElementById('week-japanese');
 let week_rika = document.getElementById('week-science');
 let week_shakai = document.getElementById('week-social-studies');
+let week_sonohoka = document.getElementById('week-sonohoka');
 //変数の指定
 let kyouka_sitei;
 let memo;
@@ -37,6 +39,7 @@ if (localStorage.getItem("hatu") === null) {
     localStorage.setItem("hull_japanese", 0);
     localStorage.setItem("hull_rika", 0);
     localStorage.setItem("hull_shakai", 0);
+    localStorage.setItem("hull_sonohoka",0);
      if (confirm("操作説明をしますか？") == true){
         sousasetumei();
     }
@@ -49,6 +52,7 @@ if (day != localStorage.getItem("day")) {
     localStorage.setItem("history_japanese", 0);
     localStorage.setItem("history_rika", 0);
     localStorage.setItem("history_shakai", 0);
+    localStorage.setItem("history_sonohoka",0);
 }
 his_kousin();
 //この後は即時実行プログラム
@@ -81,7 +85,12 @@ function touroku_click() {
                 localStorage.setItem("history_shakai", memo);
                 localStorage.setItem("hull_shakai", memo2);
                 break;
-
+            case "5":
+                memo = time + Number(localStorage.getItem("history_sonohoka"));
+                memo2 = time + Number(localStorage.getItem("hull_sonohoka"));
+                localStorage.setItem("history_sonohoka",memo);
+                localStorage.setItem("hull_sonohoka",memo2);
+                break;
             default:
                 console.error("エラーが発生しました。エラーコード：001");
                 alert("エラーが発生しました。\n再読み込みを推奨します")
@@ -125,11 +134,13 @@ function his_kousin() {
     his_japanese.innerHTML = localStorage.getItem("history_japanese") + "秒";
     his_rika.innerHTML = localStorage.getItem("history_rika") + "秒";
     his_shakai.innerHTML = localStorage.getItem("history_shakai") + "秒";
+    his_sonohoka.innerHTML = localStorage.getItem("history_sonohoka") + "秒";
     //week
     week_math.innerHTML = localStorage.getItem("hull_math") + "秒";
     week_japanese.innerHTML = localStorage.getItem("hull_japanese") + "秒";
     week_rika.innerHTML = localStorage.getItem("hull_rika") + "秒";
     week_shakai.innerHTML = localStorage.getItem("hull_shakai") + "秒";
+    week_sonohoka.innerHTML = localStorage.getItem("hull_sonohoka") + "秒";
 }
 
 function start_click() {
@@ -174,6 +185,9 @@ function kousin() {
             break;
         case "4":
             sub_time.innerHTML = "社会";
+            break;
+        case "5":
+            sub_time.innerHTML = "その他";
             break;
         default:
             sub_time.innerHTML = "教科";
