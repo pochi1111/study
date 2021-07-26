@@ -6,6 +6,10 @@
         <meta name="description" content="pochi1111が作成したツールです。ログインや会員登録しなくても
         保存でき、使用することができます。">
         <link rel="shortcut icon" href="favicon.ico">
+        <!-- CSS -->
+        <!--resetCSS-->
+        <!--<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css/"> 撤廃 -->
+        <!--この以降に追加のCSS-->
         <link rel="stylesheet" href="tool.css">
     </head>
     <body>
@@ -14,13 +18,16 @@
         </div>
         <h2 class="big"><span id="subject">教科</span>を勉強しました。</h2>
         <div id="setting">
-                <select id="pull-down-menu">
-                    <option value="1">国語</option>
-                    <option value="2">算数</option>
-                    <option value="3">理科</option>
-                    <option value="4">社会</option>
-                    <option value="5">その他</option>
-                </select>
+                <div>
+                    <select id="pull-down-menu">
+                        <option value="1">国語</option>
+                        <option value="2">算数</option>
+                        <option value="3">理科</option>
+                        <option value="4">社会</option>
+                        <option value="5">その他</option>
+                    </select>
+                    <!--ここにiconを追加、また、CSSの編集-->
+                </div>
                 <button id="start" onclick="start_click();">スタート</button>
                 <button id="stop" onclick="stop_click();">ストップ</button>
                 <button id="touroku" onclick="touroku_click();">登録</button>
@@ -47,16 +54,17 @@
                 <h3>その他：<span id="week-sonohoka"></span><br /></h3>
             </details>
         </div>
-
     </body>
-    <script src="tool.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main-tool.js"></script>
+    <script src="sub-tool.js"></script>
 
     <!--
         --memo--
         hisとweekは変数、historyとhullはストレージ
+        -リセットCSSを読み込んだため、CSSを自作する必要。-撤廃
         *追加機能*
         パソコンいじり禁止機能
-        始めてだったら操作方法説明機能
         今の時間を表示する機能
     -->
 </html>
