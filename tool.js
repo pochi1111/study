@@ -19,6 +19,7 @@ let week_sonohoka = document.getElementById('week-sonohoka');
 let kyouka_sitei;
 let memo;
 let memo2;
+let memo3;
 let tuduiteru = false;
 let torikesi_suruka;
 let time = 0;
@@ -126,21 +127,26 @@ function mainasu() {
 }
 
 function sousasetumei(){
-    alert("操作説明\nプルダウンメニューから勉強する教科を指定\nスタートで開始、ストップで一時停止。\n登録・取り消しはストップしながら、\n※電源を入れていないと時間はまだ進みません。");
+    alert("操作説明\nプルダウンメニューから勉強する教科を指定\nスタートで開始、ストップで一時停止。\n登録・取り消しはストップしながら。\n※リロードやタブを閉じたりしない限りカウントアップは続きます。");
 }
 function his_kousin() {
     //his
-    his_math.innerHTML = localStorage.getItem("history_math") + "秒";
-    his_japanese.innerHTML = localStorage.getItem("history_japanese") + "秒";
-    his_rika.innerHTML = localStorage.getItem("history_rika") + "秒";
-    his_shakai.innerHTML = localStorage.getItem("history_shakai") + "秒";
-    his_sonohoka.innerHTML = localStorage.getItem("history_sonohoka") + "秒";
+    his_math.innerHTML = time_hyouji_change(localStorage.getItem("history_math"));
+    his_japanese.innerHTML = time_hyouji_change(localStorage.getItem("history_japanese"));
+    his_rika.innerHTML = time_hyouji_change(localStorage.getItem("history_rika"));
+    his_shakai.innerHTML = time_hyouji_change(localStorage.getItem("history_shakai"));
+    his_sonohoka.innerHTML = time_hyouji_change(localStorage.getItem("history_sonohoka"));
     //week
-    week_math.innerHTML = localStorage.getItem("hull_math") + "秒";
-    week_japanese.innerHTML = localStorage.getItem("hull_japanese") + "秒";
-    week_rika.innerHTML = localStorage.getItem("hull_rika") + "秒";
-    week_shakai.innerHTML = localStorage.getItem("hull_shakai") + "秒";
-    week_sonohoka.innerHTML = localStorage.getItem("hull_sonohoka") + "秒";
+    week_math.innerHTML = time_hyouji_change(localStorage.getItem("hull_math"));
+    week_japanese.innerHTML = time_hyouji_change(localStorage.getItem("hull_japanese"));
+    week_rika.innerHTML = time_hyouji_change(localStorage.getItem("hull_rika"));
+    week_shakai.innerHTML = time_hyouji_change(localStorage.getItem("hull_shakai"));
+    week_sonohoka.innerHTML = time_hyouji_change(localStorage.getItem("hull_sonohoka"));
+}
+
+function time_hyouji_change(score){
+    memo3 =  Math.floor(score /3600) + "時間" + Math.floor((score % 3600) / 60) + "分" + Math.floor(score % 60) + "秒";
+    return memo3;
 }
 
 function start_click() {
