@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英単語☆
+    </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2 id="japanese"></h2>
+    <input type="text" id="text-input"><button id="submit" onclick="submit_input()">決定</button>
+    <h3 id="result-box">前回の結果: <span id="result"></span></h3>
+    <button onclick="shokikakakuninn">一回リストを初期化する。（正解したものも出す）</button>
+    <p>大文字や～は入れなくても結構です</p>
+</body>
+<script>
+        let counter;
+        let seikaikadouka;
+        let english_a;
+        let japanese_q;
+        let kakunin;
+        let english_a_length;
+        let final_answer;
+
+        function hensuushokika(){
+            english_a = ["interested in","politics","ill","scared of","late","tired","hungry","weather","rich","heavy","at home","thirsty","comfortable","warm","cold","early","at work","angry","country","cheap","expensive","married","what","where","when","why","how","on time","out","a little","job","near","here","at the end of","wife","lawyer","eat","read","rain","shine","run","walk","newspaper","listen","wear","wait","lie","build","stay","quiet","river","holiday","city center","at the moment","floor","laugh","learn","examination","watch","turn off","enjoy","film","funny","work","broken","look","parent","a lot of","breakfast","always","usually","often","sometimes","never","fly","finish","live","boil","close","cost","meet","wash","mathematics","dirty","forget","hard","know","phone number","the same","thing","theatre","restaurant","true","believe","picture","meat","how about you?","want to be","famous"];
+            japanese_q = ["~に興味がある","政治","病気だ","~が怖い","遅れる","疲れている","おなかがすいている","天気","金持ちだ","重い","家にいる","のどが渇いている","心地よい","暖かい","寒い、冷たい","早い","仕事中だ","怒っている","国","安い","高価だ","結婚している","なに","どこ","いつ","なぜ","どのように、どうやって","時間通りだ","外出中だ","少し","仕事","近い、~の近くだ","ここ","～の端に","妻","弁護士","食べる","読む","雨が降る、雨","輝く","走る","歩く","新聞","聞く","着る","待つ","嘘をつく、横になる","建てる","居る、滞在する","静かだ","川","休日","中心街","今現在","床、階","笑う","学ぶ","試験","観る","電源を切る","楽しむ","映画","面白おかしい","機能する、働く","壊れている","見る","親","たくさんの","朝食","いつも","たいてい","よく","たまに","決して～ない","飛ぶ","終わらせる","住む、生きる","沸騰する、ゆでる","閉まる、閉める","（お金が）かかる","会う","洗う","数学","汚い","忘れる","一生懸命","知っている","電話番号","同じ","もの、こと","映画館","レストラン","本当だ、真","信じる","写真、絵","お肉","あなたはどうですか？","～になりたい","有名だ"];
+        };
+        hensuushokika()
+        function shokikakakuninn(){
+            kakunin = confirm("本当に初期化しますか？")
+            if (kakunin = true){
+                hensuushokika();
+                alert("初期化しました")
+            }else{
+                alert("キャンセルしました")
+            }
+        }
+        function shutudai(){
+            if (english_a_length = 0){
+                hensuushokika();
+                english_a_length = english_a.length
+            }
+            english_a_length = english_a.length
+            counter = Math.floor( Math.random() * english_a_length ) + 1;
+            $("#japanese").html(japanese_q[counter]);
+            $("#text-input").val("");
+        }
+        function submit_input(){
+            final_answer = $("#text-input").val();
+            if(english_a[counter] == final_answer){
+                $("#result").html("正解です"+$("#submit").val());
+                english_a.splice( counter, 1 );
+                japanese_q.splice( counter, 1 );
+            }else{
+                $("#result").html("間違いです:<span style='color:red;'>"+$("#text-input").val()+"</span>,"+english_a[counter]);
+            }
+            shutudai();
+        }
+        shutudai();
+</script>
+</html>
