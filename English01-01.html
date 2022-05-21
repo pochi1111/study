@@ -50,7 +50,7 @@
         function submit_input(){
             final_answer = $("#text-input").val();
             if(english_a[counter] == final_answer){
-                $("#result").html("正解です"+$("#submit").val());
+                $("#result").html("正解です"+english_a[counter]);
                 english_a.splice( counter, 1 );
                 japanese_q.splice( counter, 1 );
             }else{
