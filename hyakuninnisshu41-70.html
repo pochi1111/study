@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百人一首確認(41~70)</title>
+</head>
+<body>
+    <h1>百人一首</h1>
+    <h2 id="id">ここには番号が</h2>
+    <h2 id="first">ここに最初の節が</h2>
+    <h2 id="ans">ここに歌の残りが</h2>
+    <h2 id="people">ここに作者が表示されます</h2>
+    <button id="button">NEXT</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+    let first_str
+    let ans_str
+    let people_str
+    let now = "答え"
+    let memo
+    function ans(){
+
+    }
+    teigi()
+    $("#button").click(function() {
+        if(now == "答え"){
+            $("#ans").html("")
+            $("#people").html("")
+            memo = Math.floor(Math.random()*first_str.length)
+            $("#first").html(first_str[memo])
+            $("#id").html(String(memo+41)+"番")
+            now = "質問"
+        }else{
+            $("#ans").html(ans_str[memo])
+            $("#people").html(people_str[memo])
+            now = "答え"
+        }
+    })
+    console.log(first_str.length)
+    console.log(ans_str.length)
+    console.log(people_str.length)
+</script>
+</html>
