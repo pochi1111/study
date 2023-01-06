@@ -1,24 +1,25 @@
-let kyouka = document.getElementById('pull-down-menu');
-let sub_time = document.getElementById('subject');
-let touroku = document.getElementById('touroku');
-let h = document.getElementById('hour');
-let min = document.getElementById('minute');
-let sec = document.getElementById('second');
-let his_math = document.getElementById('day-math');
-let his_japanese = document.getElementById('day-japanese');
-let his_rika = document.getElementById('day-science');
-let his_shakai = document.getElementById('day-social-studies');
-let his_sonohoka = document.getElementById('day-sonohoka');
-let week_math = document.getElementById('week-math');
-let week_japanese = document.getElementById('week-japanese');
-let week_rika = document.getElementById('week-science');
-let week_shakai = document.getElementById('week-social-studies');
-let week_sonohoka = document.getElementById('week-sonohoka');
+function getid(id){
+    return document.getElementById(id)
+}
+let kyouka = getid('pull-down-menu');
+let sub_time = getid('subject');
+let touroku = getid('touroku');
+let h = getid('hour');
+let min = getid('minute');
+let sec = getid('second');
+let his_math = getid('day-math');
+let his_japanese = getid('day-japanese');
+let his_rika = getid('day-science');
+let his_shakai = getid('day-social-studies');
+let his_sonohoka = getid('day-sonohoka');
+let week_math = getid('week-math');
+let week_japanese = getid('week-japanese');
+let week_rika = getid('week-science');
+let week_shakai = getid('week-social-studies');
+let week_sonohoka = getid('week-sonohoka');
 //変数の指定
 let kyouka_sitei;
-let memo;
-let memo2;
-let memo3;
+let memo,memo2,memo3;
 let tuduiteru = false;
 let torikesi_suruka;
 let time = 0;
